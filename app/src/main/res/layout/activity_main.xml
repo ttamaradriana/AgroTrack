@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F1F8E9">
+
+    <!-- Cabecera -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_degradado_verde"
+        android:padding="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <Button
+            android:id="@+id/btnVolverMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Menú"
+            android:backgroundTint="#1B5E20"
+            android:textColor="#FFFFFF"
+            android:visibility="gone"
+            android:layout_marginEnd="12dp"/>
+
+        <TextView
+            android:id="@+id/tvTituloPantalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AgroTrack - Panel Principal"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- VISTA 1: MENÚ PRINCIPAL CON 3 BOTONES GRANDES -->
+    <ScrollView
+        android:id="@+id/layoutMenuPrincipal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Botón Cultivos -->
+            <LinearLayout
+                android:id="@+id/cardCultivos"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="#2E7D32"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@android:drawable/ic_menu_compass"
+                    android:tint="#FFFFFF"
+                    android:layout_marginEnd="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌱 CULTIVOS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 plantaciones, cosechas y riego diario"
+                        android:textColor="#C8E6C9"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Botón Animales -->
+            <LinearLayout
+                android:id="@+id/cardAnimales"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="#558B2F"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@android:drawable/ic_menu_myplaces"
+                    android:tint="#FFFFFF"
+                    android:layout_marginEnd="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🐄 ANIMALES"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 especies, vacunas y alimentación"
+                        android:textColor="#DCEDC8"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Botón Inventario -->
+            <LinearLayout
+                android:id="@+id/cardInventario"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="#33691E"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="20dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@android:drawable/ic_menu_agenda"
+                    android:tint="#FFFFFF"
+                    android:layout_marginEnd="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📦 INVENTARIO"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Registro de producción agrícola y ganadera"
+                        android:textColor="#DCEDC8"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- VISTA 2: LISTA DINÁMICA (PARA ANIMALES O CULTIVOS) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSeccion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"
+        android:visibility="gone" />
+
+    <!-- VISTA 3: INVENTARIO DE PRODUCCIÓN -->
+    <LinearLayout
+        android:id="@+id/layoutInventario"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrar Producto Recogido"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#1B5E20"
+            android:layout_marginBottom="8dp"/>
+
+        <Spinner
+            android:id="@+id/spinnerProductos"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etCantidadProducto"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#FFFFFF"
+            android:padding="12dp"
+            android:inputType="number"
+            android:hint="Cantidad recogida hoy"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnAgregarInventario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Añadir al Inventario"
+            android:backgroundTint="#2E7D32"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/tvResumenInventario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:textSize="16sp"
+            android:textColor="#212121" />
+    </LinearLayout>
+</LinearLayout>
