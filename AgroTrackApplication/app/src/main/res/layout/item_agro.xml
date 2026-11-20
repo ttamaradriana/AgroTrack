@@ -55,11 +55,29 @@
     </LinearLayout>
 
     <CheckBox
-        android:id="@+id/cbTareaDiaria"
+        android:id="@+id/cbTareaMañana"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:text="Alimentado hoy"
+        android:text="Alimetación - Mañana"
+        android:textColor="#2E7D32"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/cbTareaTarde"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="Alimetación -Tarde"
+        android:textColor="#2E7D32"
+        android:textStyle="bold"/>
+
+    <CheckBox
+        android:id="@+id/cbVacuna"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="Mañana - Alimetación"
         android:textColor="#2E7D32"
         android:textStyle="bold"/>
 </LinearLayout>

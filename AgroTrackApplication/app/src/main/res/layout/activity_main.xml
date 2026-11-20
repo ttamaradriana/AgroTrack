@@ -3,229 +3,676 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F1F8E9">
+    android:background="#FBF9F5"
+    android:fitsSystemWindows="true">
 
-    <!-- Cabecera -->
+    <!-- CABECERA CUADRADA Y COMPACTA (Con separación abajo) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_degradado_verde"
-        android:padding="20dp"
+        android:background="#1B5E20"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="18dp"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:layout_marginBottom="12dp"
+        android:elevation="0dp">
 
         <Button
-            android:id="@+id/btnVolverMenu"
+            android:id="@+id/btnVolver"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="← Menú"
-            android:backgroundTint="#1B5E20"
-            android:textColor="#FFFFFF"
+            android:layout_height="38dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="12dp"
+            android:text="← Volver"
+            android:textSize="13sp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#1B5E20"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:visibility="gone"
-            android:layout_marginEnd="12dp"/>
+            android:layout_marginEnd="10dp"/>
 
         <TextView
             android:id="@+id/tvTituloPantalla"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="AgroTrack - Panel Principal"
+            android:layout_weight="1"
+            android:text="🌾 AgroTrack - Conectado al campo..."
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <Button
+            android:id="@+id/btnPerfilCabecera"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#E8F5E9"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:text="👤"
+            android:textAllCaps="false"
+            android:textColor="#1B5E20"
+            android:textSize="18sp" />
     </LinearLayout>
 
-    <!-- VISTA 1: MENÚ PRINCIPAL CON 3 BOTONES GRANDES -->
+    <!-- VISTA 1: MENÚ PRINCIPAL BENTO -->
     <ScrollView
         android:id="@+id/layoutMenuPrincipal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:background="#FBF9F5"
+        android:paddingHorizontal="12dp"
+        android:paddingBottom="16dp"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Botón Cultivos -->
+            <!-- 1. TARJETA CALENDARIO + NOTIFICACIONES -->
             <LinearLayout
-                android:id="@+id/cardCultivos"
+                android:id="@+id/cardCalendario"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:background="#2E7D32"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_card"
+                android:orientation="vertical"
+                android:padding="18dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="3dp"
                 android:clickable="true"
                 android:focusable="true">
 
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@android:drawable/ic_menu_compass"
-                    android:tint="#FFFFFF"
-                    android:layout_marginEnd="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:background="@drawable/bg_pill_badge"
+                        android:gravity="center"
+                        android:text="📅"
+                        android:textSize="20sp"
+                        android:layout_marginEnd="12dp"/>
+
+                    <TextView
+                        android:id="@+id/tvMesPortada"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="NOV 2026"
+                        android:textColor="#1B2E1E"
+                        android:textSize="20sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_pill_badge"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp"
+                        android:text="Registro →"
+                        android:textColor="#1B5E20"
+                        android:textSize="12sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:background="#F2F1F1"
+                    android:padding="12dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent"
+                        android:background="#2E7D32"
+                        android:layout_marginEnd="12dp"/>
+
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvNotificacionesMenu"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="🌱 CULTIVOS"
-                        android:textColor="#FFFFFF"
-                        android:textSize="24sp"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10 plantaciones, cosechas y riego diario"
-                        android:textColor="#C8E6C9"
-                        android:textSize="14sp"/>
+                        android:text="Sin avisos pendientes en registro"
+                        android:textColor="#2E3B2F"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="3dp"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Botón Animales -->
+            <!-- 2. TARJETA ANIMALES -->
             <LinearLayout
                 android:id="@+id/cardAnimales"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:background="#558B2F"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_verde_medio"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="20dp"
-                android:layout_marginBottom="16dp"
+                android:padding="18dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
                 android:clickable="true"
                 android:focusable="true">
 
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@android:drawable/ic_menu_myplaces"
-                    android:tint="#FFFFFF"
-                    android:layout_marginEnd="20dp"/>
+                <TextView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_pill_badge"
+                    android:gravity="center"
+                    android:text="🐄"
+                    android:textSize="28sp"
+                    android:layout_marginEnd="16dp"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="vertical">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="🐄 ANIMALES"
+                        android:text="ANIMALES"
                         android:textColor="#FFFFFF"
-                        android:textSize="24sp"
+                        android:textSize="19sp"
                         android:textStyle="bold"/>
+
                     <TextView
+                        android:id="@+id/tvPorcentajeAnimales"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="10 especies, vacunas y alimentación"
-                        android:textColor="#DCEDC8"
-                        android:textSize="14sp"/>
+                        android:text="0% · Tareas completadas"
+                        android:textColor="#E8F5E9"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/pbAnimales"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progressTint="#FFFFFF"
+                        android:progressBackgroundTint="#40FFFFFF"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Botón Inventario -->
+            <!-- 3. TARJETA CULTIVOS -->
+            <LinearLayout
+                android:id="@+id/cardCultivos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_verde_oscuro"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="18dp"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/bg_pill_badge"
+                    android:gravity="center"
+                    android:text="🌱"
+                    android:textSize="28sp"
+                    android:layout_marginEnd="16dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CULTIVOS"
+                        android:textColor="#FFFFFF"
+                        android:textSize="19sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvPorcentajeCultivos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0% · Tareas completadas"
+                        android:textColor="#E8F5E9"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/pbCultivos"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        android:progressTint="#A5D6A7"
+                        android:progressBackgroundTint="#40FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 4. TARJETA INVENTARIO (Revisa tu almacén) -->
             <LinearLayout
                 android:id="@+id/cardInventario"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:background="#33691E"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_card"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:padding="20dp"
+                android:padding="18dp"
+                android:elevation="0dp"
                 android:clickable="true"
                 android:focusable="true">
 
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:src="@android:drawable/ic_menu_agenda"
-                    android:tint="#FFFFFF"
-                    android:layout_marginEnd="20dp"/>
+                <TextView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/bg_pill_badge"
+                    android:gravity="center"
+                    android:text="📦"
+                    android:textSize="26sp"
+                    android:layout_marginEnd="16dp"/>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="vertical">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="📦 INVENTARIO"
-                        android:textColor="#FFFFFF"
-                        android:textSize="24sp"
+                        android:text="INVENTARIO"
+                        android:textColor="#1B2E1E"
+                        android:textSize="19sp"
                         android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Registro de producción agrícola y ganadera"
-                        android:textColor="#DCEDC8"
-                        android:textSize="14sp"/>
+                        android:text="Revisa tu almacén"
+                        android:textColor="#5C6F5E"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp"/>
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="›"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32"/>
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
-    <!-- VISTA 2: LISTA DINÁMICA (PARA ANIMALES O CULTIVOS) -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerSeccion"
+    <!-- VISTA 2: BUSCADOR + CUADRÍCULA -->
+    <LinearLayout
+        android:id="@+id/layoutSeccionGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FBF9F5"
+        android:orientation="vertical"
         android:padding="12dp"
-        android:visibility="gone" />
+        android:visibility="gone">
 
-    <!-- VISTA 3: INVENTARIO DE PRODUCCIÓN -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bento_card"
+            android:padding="6dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="10dp"
+            android:elevation="3dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/autoBuscarElemento"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="🔍 Buscar para añadir..."
+                android:completionThreshold="1"
+                android:paddingHorizontal="12dp"/>
+
+            <Button
+                android:id="@+id/btnAnadirElemento"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="+ Añadir"
+                android:backgroundTint="#2E7D32"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerGrid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- VISTA 3: DETALLE INDIVIDUAL -->
+    <ScrollView
+        android:id="@+id/layoutDetalle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FBF9F5"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tvDetalleEmoji"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:background="@drawable/bg_bento_card"
+                android:gravity="center"
+                android:text="🐄"
+                android:textSize="58sp"
+                android:elevation="4dp"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:id="@+id/tvDetalleNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vacas Lecheras"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#1B2E1E"/>
+
+            <TextView
+                android:id="@+id/tvDetalleCantidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_badge"
+                android:paddingHorizontal="14dp"
+                android:paddingVertical="5dp"
+                android:text="Cantidad: 32 uds."
+                android:textSize="14sp"
+                android:textColor="#2E7D32"
+                android:textStyle="bold"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="16dp"/>
+
+            <Button
+                android:id="@+id/btnTareaDiariaDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Alimentación dada hoy  ○"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="12dp"/>
+
+            <LinearLayout
+                android:id="@+id/cajaRecogidaDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_card"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:elevation="2dp"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:id="@+id/tvTituloRecogidaDetalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recogida de hoy:"
+                    android:textStyle="bold"
+                    android:textColor="#1B5E20"
+                    android:layout_marginBottom="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etCantidadRecogidaDetalle"
+                        android:layout_width="0dp"
+                        android:layout_height="44dp"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:hint="Cantidad..."
+                        android:layout_marginEnd="10dp"/>
+
+                    <Button
+                        android:id="@+id/btnGuardarRecogidaDetalle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:text="Guardar"
+                        android:backgroundTint="#2E7D32"
+                        android:textColor="#FFFFFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnVacunaPodaDetalle"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:text="Vacuna administrada  ○"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- VISTA 4: REGISTRO ESTILO AGENDA MENSUAL -->
+    <ScrollView
+        android:id="@+id/layoutRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FBF9F5"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_card"
+                android:padding="14dp"
+                android:orientation="vertical"
+                android:elevation="3dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tvMesActualCalendario"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="NOV 2026"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="#1B2E1E"/>
+
+                    <Button
+                        android:id="@+id/btnMesAnterior"
+                        android:layout_width="40dp"
+                        android:layout_height="38dp"
+                        android:text="‹"
+                        android:textSize="18sp"
+                        android:backgroundTint="#E8F5E9"
+                        android:textColor="#1B5E20"
+                        android:layout_marginEnd="6dp"/>
+
+                    <Button
+                        android:id="@+id/btnMesSiguiente"
+                        android:layout_width="40dp"
+                        android:layout_height="38dp"
+                        android:text="›"
+                        android:textSize="18sp"
+                        android:backgroundTint="#E8F5E9"
+                        android:textColor="#1B5E20"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="L" android:gravity="center" android:textStyle="bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="M" android:gravity="center" android:textStyle="bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="X" android:gravity="center" android:textStyle="bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="J" android:gravity="center" android:textStyle="bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="V" android:gravity="center" android:textStyle="bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="S" android:gravity="center" android:textStyle="bold" android:textSize="12sp"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="D" android:gravity="center" android:textStyle="bold" android:textSize="12sp" android:textColor="#D32F2F"/>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerCalendarioMes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvFechaDetalleAgenda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="17 nov 2026"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="#1B2E1E"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/contenedorEventosDia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/btnNuevoEventoCalendario"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_bento_card"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="2dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+  Nuevo Evento / Recordatorio"
+                    android:textColor="#2E7D32"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="💉 Vacunación y ✂️ Poda"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#1B5E20"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:id="@+id/contenedorChecksRegistro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_bento_card"
+                android:padding="12dp"
+                android:elevation="2dp"
+                android:orientation="vertical"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- VISTA 5: INVENTARIO -->
     <LinearLayout
         android:id="@+id/layoutInventario"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FAF6EE"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="12dp"
         android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_bento_card"
+            android:padding="6dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="12dp"
+            android:elevation="3dp">
+
+            <Button
+                android:id="@+id/btnTabInvAnimales"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:text="🐄 Animales"
+                android:backgroundTint="#2E7D32"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="4dp"/>
+
+            <Button
+                android:id="@+id/btnTabInvCultivos"
+                android:layout_width="0dp"
+                android:layout_height="42dp"
+                android:layout_weight="1"
+                android:text="🌱 Cultivos"
+                android:backgroundTint="#E8F5E9"
+                android:textColor="#1B5E20"
+                android:layout_marginStart="4dp"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Producto Recogido"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#1B5E20"
+            android:text="Toca un cuadrado para actualizar stock:"
+            android:textSize="12sp"
+            android:textColor="#5C6F5E"
             android:layout_marginBottom="8dp"/>
 
-        <Spinner
-            android:id="@+id/spinnerProductos"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerInventarioGrid"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#FFFFFF"
-            android:layout_marginBottom="12dp"/>
-
-        <EditText
-            android:id="@+id/etCantidadProducto"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#FFFFFF"
-            android:padding="12dp"
-            android:inputType="number"
-            android:hint="Cantidad recogida hoy"
-            android:layout_marginBottom="12dp"/>
-
-        <Button
-            android:id="@+id/btnAgregarInventario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Añadir al Inventario"
-            android:backgroundTint="#2E7D32"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:id="@+id/tvResumenInventario"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FFFFFF"
-            android:padding="16dp"
-            android:textSize="16sp"
-            android:textColor="#212121" />
+            android:layout_height="match_parent" />
     </LinearLayout>
+
 </LinearLayout>
